@@ -2,9 +2,8 @@ import UserModel from "../../DB/models/User.model.js";
 
 export const signup = async (req, res) => {
   try {
-    const { firstName, lastName, email, password } = req.body;
 
-    const newUser = await UserModel.create({ firstName, lastName, email, password });
+    const newUser = await UserModel.create(req.body);
     
     return res.status(201).json({ message: "User registered successfully", newUser });
 
