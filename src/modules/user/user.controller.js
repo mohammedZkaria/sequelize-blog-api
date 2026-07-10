@@ -46,3 +46,12 @@ const users = await UserModel.findAll({
     console.log(error);
   }
 };
+
+export const getUserByID = async (req , res) => {
+    const {id} = req.params;
+    const user = await UserModel.findByPk(id,{attributes:{exclude:['role']}});
+    if(!user){
+        return res.status(404).json({message: "user not found"});
+    }
+    return res.status(200).json({message: "user found successfully", user});
+}
