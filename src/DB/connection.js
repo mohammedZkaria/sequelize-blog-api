@@ -20,7 +20,7 @@ export const checkDBconnection = async () => {
 };
 export const checkAsyncDBconnection = async () => {
   await sequelize
-    .sync({ force: true, alter: false })
+    .sync({ force: false, alter: false })
     .then(() => console.log("Database & tables created!"))
     .catch((error) => console.log(error));
 };
