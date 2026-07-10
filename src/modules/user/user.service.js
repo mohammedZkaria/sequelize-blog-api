@@ -1,10 +1,10 @@
-import { updateUser } from "./user.controller.js";
+import { search, updateUser } from "./user.controller.js";
 import express from "express";
 
 
 const router = express.Router();
 
-router.patch("/:id",updateUser);
-
+router.put("/:id",updateUser);
+router.get("/search",search);
 
 export default router
