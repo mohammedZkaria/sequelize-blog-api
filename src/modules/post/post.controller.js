@@ -22,7 +22,7 @@ export const deletePost = async (req, res) => {
     const { id } = req.params;
 
     const post = await PostModel.findByPk(id);
-
+    
     if (!post) {
       return res.status(404).json({ message: "post not found" });
     }
