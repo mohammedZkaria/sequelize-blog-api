@@ -36,6 +36,9 @@ const UserModel = sequelize.define("user", {
     type: DataTypes.ENUM("user", "admin"),
     allowNull: false,
   },
+},{
+  paranoid : true ,
+  
 });
 
 export default UserModel;
