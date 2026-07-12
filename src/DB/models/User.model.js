@@ -1,5 +1,7 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../connection.js";
+import PostModel from "./Post.model.js";
+import CommentModel from "./comment.model.js";
 
 const UserModel = sequelize.define("user", {
   fullName: {
@@ -37,5 +39,15 @@ const UserModel = sequelize.define("user", {
     allowNull: false,
   },
 });
+
+UserModel.hasMany(PostModel, { foreignKey: "userId", onDelete: "CASCADE", onUpdate: "CASCADE" });
+UserModel.hasMany(CommentModel, { foreignKey: "userId", onDelete: "CASCADE", onUpdate: "CASCADE" });
+
+CommentModel.belongsTo(UserModel, { foreignKey: "userId" });
+CommentModel.belongsTo(PostModel, { foreignKey: "postId" }); 
+
+PostModel.belongsTo(UserModel, { foreignKey: "userId" });
+
+PostModel.hasMany(CommentModel, { foreignKey: "postId", onDelete: "CASCADE", onUpdate: "CASCADE" });
 
 export default UserModel;

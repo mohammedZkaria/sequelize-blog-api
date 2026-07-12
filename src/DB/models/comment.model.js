@@ -17,4 +17,6 @@ const CommentModel = sequelize.define("comment", {
     },
 });
 
+
+
 export default CommentModel

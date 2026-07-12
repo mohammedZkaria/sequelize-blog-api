@@ -1,6 +1,6 @@
+import routerUser from "./modules/user/user.service.js";
 import routerAuth from "./modules/auth/services/auth.service.js";
 import routerPost from "./modules/post/post.service.js";
-import routerUser from "./modules/user/user.service.js";
 import routerComment from "./modules/comment/comment.service.js";
 
 export const bootstrap = (app, express) => {
